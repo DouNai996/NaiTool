@@ -20,6 +20,7 @@ import fi.dy.masa.malilib.util.FileUtils;
 import fi.dy.masa.malilib.util.data.json.JsonUtils;
 import com.naitool.Reference;
 import com.naitool.feature.NightVision;
+import com.naitool.feature.Sprint;
 
 public class Configs implements IConfigHandler {
     private static final String CONFIG_FILE_NAME = Reference.MOD_ID + ".json";
@@ -45,13 +46,21 @@ public class Configs implements IConfigHandler {
         public static final ConfigOptionList NIGHT_VISION_MODE =
                 new ConfigOptionList("nightVisionMode", NightVision.Mode.GAMMA).apply(GENERIC_KEY);
 
+        public static final ConfigBoolean SPRINT_ENABLED =
+                new ConfigBoolean("sprintEnabled", false).apply(GENERIC_KEY);
+
+        public static final ConfigOptionList SPRINT_MODE =
+                new ConfigOptionList("sprintMode", Sprint.Mode.STRICT).apply(GENERIC_KEY);
+
         public static final ImmutableList<@NotNull IConfigBase> OPTIONS = ImmutableList.of(
                 ELYTRA_BOOST_ENABLED,
                 ELYTRA_BOOST_DONT_CONSUME,
                 ELYTRA_BOOST_FIREWORK_LEVEL,
                 ELYTRA_BOOST_PLAY_SOUND,
                 NIGHT_VISION_ENABLED,
-                NIGHT_VISION_MODE
+                NIGHT_VISION_MODE,
+                SPRINT_ENABLED,
+                SPRINT_MODE
         );
     }
 

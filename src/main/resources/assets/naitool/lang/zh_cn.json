@@ -18,9 +18,9 @@
     "naitool.config.generic.name.elytraBoostPlaySound": "鞘翅加速-播放音效",
     "naitool.config.generic.prettyName.elytraBoostPlaySound": "elytraBoostPlaySound",
     "naitool.config.generic.comment.elytraBoostPlaySound": "加速时播放烟花发射音效。",
-    "naitool.config.generic.name.nightVisionEnabled": "夜视",
+    "naitool.config.generic.name.nightVisionEnabled": "夜视开关",
     "naitool.config.generic.prettyName.nightVisionEnabled": "nightVisionEnabled",
-    "naitool.config.generic.comment.nightVisionEnabled": "开启夜视功能。",
+    "naitool.config.generic.comment.nightVisionEnabled": "夜视功能开关。",
     "naitool.config.generic.name.nightVisionMode": "夜视模式",
     "naitool.config.generic.prettyName.nightVisionMode": "nightVisionMode",
     "naitool.config.generic.comment.nightVisionMode": "点击切换：Gamma（完全明亮）或 Potion（夜视药水效果）。",
@@ -31,5 +31,13 @@
     "naitool.config.hotkey.comment.openConfigGui": "打开 NaiTool 的设置界面。默认：X+C",
     "naitool.config.hotkey.name.elytraBoost": "鞘翅加速",
     "naitool.config.hotkey.prettyName.elytraBoost": "elytraBoost",
-    "naitool.config.hotkey.comment.elytraBoost": "滑翔时用烟花加速。默认：F"
+    "naitool.config.hotkey.comment.elytraBoost": "滑翔时用烟花加速。默认：F",
+    "naitool.config.generic.name.sprintEnabled": "自动冲刺",
+    "naitool.config.generic.prettyName.sprintEnabled": "sprintEnabled",
+    "naitool.config.generic.comment.sprintEnabled": "自动保持冲刺状态。",
+    "naitool.config.generic.name.sprintMode": "冲刺模式",
+    "naitool.config.generic.prettyName.sprintMode": "sprintMode",
+    "naitool.config.generic.comment.sprintMode": "点击切换冲刺模式。",
+    "naitool.config.generic.sprintMode.strict": "合法模式",
+    "naitool.config.generic.sprintMode.rage": "自由模式"
 }

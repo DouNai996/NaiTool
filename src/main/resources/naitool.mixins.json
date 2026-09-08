@@ -10,7 +10,8 @@
 		"FireworkRocketEntityMixin",
 		"MultiPlayerGameModeMixin",
 		"MinecraftMixin",
-		"LightmapMixin"
+		"LightmapMixin",
+		"LocalPlayerMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
