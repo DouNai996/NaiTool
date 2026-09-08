@@ -13,6 +13,7 @@ import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.ConfigUtils;
 import fi.dy.masa.malilib.config.options.ConfigBase;
 import fi.dy.masa.malilib.config.options.ConfigBoolean;
+import fi.dy.masa.malilib.config.options.ConfigDouble;
 import fi.dy.masa.malilib.config.options.ConfigInteger;
 import fi.dy.masa.malilib.config.options.ConfigOptionList;
 import fi.dy.masa.malilib.hotkeys.IHotkey;
@@ -21,6 +22,7 @@ import fi.dy.masa.malilib.util.data.json.JsonUtils;
 import com.naitool.Reference;
 import com.naitool.feature.NightVision;
 import com.naitool.feature.Sprint;
+import com.naitool.feature.ElytraTrails;
 
 public class Configs implements IConfigHandler {
     private static final String CONFIG_FILE_NAME = Reference.MOD_ID + ".json";
@@ -40,6 +42,30 @@ public class Configs implements IConfigHandler {
         public static final ConfigBoolean ELYTRA_BOOST_PLAY_SOUND =
                 new ConfigBoolean("elytraBoostPlaySound", true).apply(GENERIC_KEY);
 
+        public static final ConfigBoolean ELYTRA_TRAILS_ENABLED =
+                new ConfigBoolean("elytraTrailsEnabled", false).apply(GENERIC_KEY);
+
+        public static final ConfigOptionList ELYTRA_TRAILS_MODE =
+                new ConfigOptionList("elytraTrailsMode", ElytraTrails.TrailMode.RAINBOW).apply(GENERIC_KEY);
+
+        public static final ConfigInteger ELYTRA_TRAILS_COLOR =
+                new ConfigInteger("elytraTrailsColor", 0x55FF55, 0, 0xFFFFFF).apply(GENERIC_KEY);
+
+        public static final ConfigInteger ELYTRA_TRAILS_DURATION =
+                new ConfigInteger("elytraTrailsDuration", 120, 20, 5000).apply(GENERIC_KEY);
+
+        public static final ConfigDouble ELYTRA_TRAILS_SPREAD =
+                new ConfigDouble("elytraTrailsSpread", 1.0, 0.0, 10.0).apply(GENERIC_KEY);
+
+        public static final ConfigInteger ELYTRA_TRAILS_DENSITY =
+                new ConfigInteger("elytraTrailsDensity", 30, 5, 150).apply(GENERIC_KEY);
+
+        public static final ConfigDouble ELYTRA_TRAILS_Y_OFFSET =
+                new ConfigDouble("elytraTrailsYOffset", 0.5, 0.0, 3.0).apply(GENERIC_KEY);
+
+        public static final ConfigBoolean ELYTRA_TRAILS_HIDE_FIREWORKS =
+                new ConfigBoolean("elytraTrailsHideFireworks", true).apply(GENERIC_KEY);
+
         public static final ConfigBoolean NIGHT_VISION_ENABLED =
                 new ConfigBoolean("nightVisionEnabled", false).apply(GENERIC_KEY);
 
@@ -50,13 +76,21 @@ public class Configs implements IConfigHandler {
                 new ConfigBoolean("sprintEnabled", false).apply(GENERIC_KEY);
 
         public static final ConfigOptionList SPRINT_MODE =
-                new ConfigOptionList("sprintMode", Sprint.Mode.STRICT).apply(GENERIC_KEY);
+                new ConfigOptionList("sprintMode", Sprint.Mode.RAGE).apply(GENERIC_KEY);
 
         public static final ImmutableList<@NotNull IConfigBase> OPTIONS = ImmutableList.of(
                 ELYTRA_BOOST_ENABLED,
                 ELYTRA_BOOST_DONT_CONSUME,
                 ELYTRA_BOOST_FIREWORK_LEVEL,
                 ELYTRA_BOOST_PLAY_SOUND,
+                ELYTRA_TRAILS_ENABLED,
+                ELYTRA_TRAILS_MODE,
+                ELYTRA_TRAILS_COLOR,
+                ELYTRA_TRAILS_DURATION,
+                ELYTRA_TRAILS_SPREAD,
+                ELYTRA_TRAILS_DENSITY,
+                ELYTRA_TRAILS_HIDE_FIREWORKS,
+                ELYTRA_TRAILS_Y_OFFSET,
                 NIGHT_VISION_ENABLED,
                 NIGHT_VISION_MODE,
                 SPRINT_ENABLED,

@@ -7,11 +7,13 @@
 	],
 	"client": [
 		"ClientLevelMixin",
+		"ClientLevelParticleMixin",
 		"FireworkRocketEntityMixin",
 		"MultiPlayerGameModeMixin",
 		"MinecraftMixin",
 		"LightmapMixin",
-		"LocalPlayerMixin"
+		"LocalPlayerMixin",
+		"LocalPlayerTickMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
