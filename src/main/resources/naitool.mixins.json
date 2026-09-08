@@ -1,0 +1,19 @@
+{
+	"required": true,
+	"package": "com.naitool.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"mixins": [
+		"ExampleMixin"
+	],
+	"client": [
+		"ClientLevelMixin",
+		"FireworkRocketEntityMixin",
+		"MultiPlayerGameModeMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	}
+}
