@@ -8,7 +8,9 @@
 	"client": [
 		"ClientLevelMixin",
 		"FireworkRocketEntityMixin",
-		"MultiPlayerGameModeMixin"
+		"MultiPlayerGameModeMixin",
+		"MinecraftMixin",
+		"LightmapMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

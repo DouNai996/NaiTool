@@ -6,7 +6,6 @@ import fi.dy.masa.malilib.gui.GuiBase;
 import fi.dy.masa.malilib.hotkeys.IHotkeyCallback;
 import fi.dy.masa.malilib.hotkeys.IKeybind;
 import fi.dy.masa.malilib.hotkeys.KeyAction;
-import com.naitool.NaiTool;
 import com.naitool.feature.ElytraBoost;
 import com.naitool.gui.GuiConfigs;
 

@@ -34,6 +34,9 @@ public final class ElytraBoost {
         if (!mc.player.isFallFlying()) {
             return;
         }
+        if (!Configs.Generic.ELYTRA_BOOST_ENABLED.getBooleanValue()) {
+            return;
+        }
 
         FIREWORKS.removeIf(Entity::isRemoved);
 

@@ -21,15 +21,15 @@ public abstract class MultiPlayerGameModeMixin {
     private void naitool$onUseItem(Player player, InteractionHand hand, CallbackInfoReturnable<InteractionResult> cir) {
         Minecraft mc = Minecraft.getInstance();
 
-        // 只处理"玩家自己 + 鞘翅滑翔中 + 无GUI + 开启防消耗 + 手持烟花"
         if (mc.player == null || mc.player != player) return;
+        if (!Configs.Generic.ELYTRA_BOOST_ENABLED.getBooleanValue()) return;
         if (!Configs.Generic.ELYTRA_BOOST_DONT_CONSUME.getBooleanValue()) return;
         if (!player.isFallFlying() || mc.gui.screen() != null) return;
 
         ItemStack stack = player.getItemInHand(hand);
         if (stack.is(Items.FIREWORK_ROCKET)) {
-            ElytraBoost.boost();                 // 用虚拟烟花加速（不消耗）
-            cir.setReturnValue(InteractionResult.PASS); // 取消原版消耗
+            ElytraBoost.boost();
+            cir.setReturnValue(InteractionResult.PASS);
         }
     }
 }
