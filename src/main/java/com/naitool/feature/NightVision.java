@@ -80,12 +80,12 @@ public final class NightVision {
             if (configMode == Mode.POTION) {
                 applyNightVision();
             }
-            Minecraft.getInstance().levelExtractor.allChanged();
+            Minecraft.getInstance().levelRenderer.allChanged();
         } else if (wasEnabled && !configEnabled) {
             if (prevMode == Mode.POTION) {
                 removeNightVision();
             }
-            Minecraft.getInstance().levelExtractor.allChanged();
+            Minecraft.getInstance().levelRenderer.allChanged();
         } else if (configEnabled && prevMode != configMode) {
             if (prevMode == Mode.POTION) {
                 removeNightVision();
@@ -93,7 +93,7 @@ public final class NightVision {
             if (configMode == Mode.POTION) {
                 applyNightVision();
             }
-            Minecraft.getInstance().levelExtractor.allChanged();
+            Minecraft.getInstance().levelRenderer.allChanged();
         }
     }
 

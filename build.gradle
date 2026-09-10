@@ -42,8 +42,6 @@ processResources {
 		expand "version": version
 	}
 
-	// 输出 jar 名称包含 MC 版本号，方便区分
-	archivesBaseName = "${project.archives_base_name}-${mcVersion}"
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -60,6 +58,8 @@ java {
 jar {
 	def projectName = project.name
 	inputs.property "projectName", projectName
+
+	archiveBaseName.set("${project.archives_base_name}-${project.minecraft_version}")
 
 	from("LICENSE") {
 		rename { "${it}_$projectName"}

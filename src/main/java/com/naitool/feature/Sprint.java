@@ -4,6 +4,7 @@ import net.minecraft.client.Minecraft;
 
 import fi.dy.masa.malilib.config.IConfigOptionListEntry;
 import com.naitool.config.Configs;
+import com.naitool.event.ScreenTracker;
 
 public final class Sprint {
     private Sprint() {}
@@ -58,7 +59,7 @@ public final class Sprint {
             return;
         }
         Minecraft mc = Minecraft.getInstance();
-        if (mc.player == null || mc.gui.screen() != null) {
+        if (mc.player == null || ScreenTracker.getCurrentScreen() != null) {
             return;
         }
         if (mc.player.isInWater() || mc.player.isMobilityRestricted()) {

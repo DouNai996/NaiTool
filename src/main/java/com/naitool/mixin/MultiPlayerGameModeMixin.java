@@ -7,6 +7,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import com.naitool.config.Configs;
 import com.naitool.feature.ElytraBoost;
+import com.naitool.event.ScreenTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.MultiPlayerGameMode;
 import net.minecraft.world.InteractionHand;
@@ -24,7 +25,7 @@ public abstract class MultiPlayerGameModeMixin {
         if (mc.player == null || mc.player != player) return;
         if (!Configs.Generic.ELYTRA_BOOST_ENABLED.getBooleanValue()) return;
         if (!Configs.Generic.ELYTRA_BOOST_DONT_CONSUME.getBooleanValue()) return;
-        if (!player.isFallFlying() || mc.gui.screen() != null) return;
+        if (!player.isFallFlying() || ScreenTracker.getCurrentScreen() != null) return;
 
         ItemStack stack = player.getItemInHand(hand);
         if (stack.is(Items.FIREWORK_ROCKET)) {

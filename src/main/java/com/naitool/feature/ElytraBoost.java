@@ -18,6 +18,7 @@ import net.minecraft.world.item.component.FireworkExplosion;
 import net.minecraft.world.item.component.Fireworks;
 
 import com.naitool.config.Configs;
+import com.naitool.event.ScreenTracker;
 
 public final class ElytraBoost {
     private ElytraBoost() {}
@@ -28,7 +29,7 @@ public final class ElytraBoost {
     public static void boost() {
         Minecraft mc = Minecraft.getInstance();
 
-        if (mc.player == null || mc.level == null || mc.gui.screen() != null) {
+        if (mc.player == null || mc.level == null || ScreenTracker.getCurrentScreen() != null) {
             return;
         }
         if (!mc.player.isFallFlying()) {

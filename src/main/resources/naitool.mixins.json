@@ -13,7 +13,8 @@
 		"MinecraftMixin",
 		"LightmapMixin",
 		"LocalPlayerMixin",
-		"LocalPlayerTickMixin"
+		"LocalPlayerTickMixin",
+		"GuiScreenMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

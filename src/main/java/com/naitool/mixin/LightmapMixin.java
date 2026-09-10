@@ -23,7 +23,7 @@ public abstract class LightmapMixin {
     @Inject(method = "render", at = @At("HEAD"), cancellable = true)
     private void onRenderLightmap(LightmapRenderState renderState, CallbackInfo ci) {
         if (NightVision.isGammaActive()) {
-            RenderSystem.getDevice().createCommandEncoder().clearColorTexture(texture, new Vector4f(1));
+            RenderSystem.getDevice().createCommandEncoder().clearColorTexture(texture, 0xFFFFFFFF);
             ci.cancel();
         }
     }
