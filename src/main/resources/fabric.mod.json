@@ -5,7 +5,7 @@
 	"name": "NaiTool",
 	"description": "This is Esay tool!",
 	"authors": [
-		"Dou_Nai!"
+		"DouNai996!"
 	],
 	"contact": {
 		"homepage": "",
@@ -24,7 +24,7 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.19.3",
-		"minecraft": "~26.3",
+		"minecraft": "~26.2",
 		"java": ">=25",
 		"fabric-api": "*",
 		"malilib": ">=0.29.3"
