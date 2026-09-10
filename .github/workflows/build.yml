@@ -4,7 +4,16 @@
 # against bad commits.
 
 name: build
-on: [pull_request, push]
+# 在 build.yml 的 on.push.branches 中加入所有版本分支
+on:
+  push:
+    branches:
+      - master
+      - 'mc/**'
+  pull_request:
+    branches:
+      - master
+      - 'mc/**'
 
 jobs:
   build:
