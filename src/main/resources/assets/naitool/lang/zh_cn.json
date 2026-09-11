@@ -68,5 +68,17 @@
     "naitool.config.generic.comment.elytraTrailsHideFireworks": "尾迹开启时隐藏烟花的视觉特效，避免遮挡尾迹。",
     "naitool.config.generic.name.elytraTrailsYOffset": "鞘翅尾迹下移距离",
     "naitool.config.generic.prettyName.elytraTrailsYOffset": "elytraTrailsYOffset",
-    "naitool.config.generic.comment.elytraTrailsYOffset": "将尾迹粒子向下偏移，避免遮挡第一人称视角。推荐值：0.5~1.0。"
+    "naitool.config.generic.comment.elytraTrailsYOffset": "将尾迹粒子向下偏移，避免遮挡第一人称视角。推荐值：0.5~1.0。",
+    "naitool.config.generic.name.freeCameraEnabled": "灵魂出窍增强",
+    "naitool.config.generic.prettyName.freeCameraEnabled": "freeCameraEnabled",
+    "naitool.config.generic.comment.freeCameraEnabled": "§6功能：§r让 §bTweakeroo§r 灵魂出窍使用相机准星进行方块、实体和投影交互。\n§e距离：§r仍按玩家本体位置和服务端同步的交互距离判断；超距目标不会执行，避免客户端幽灵方块。\n§7默认：§r开启。",
+    "naitool.config.generic.name.freeCameraBlockInteractions": "灵魂出窍-方块交互",
+    "naitool.config.generic.prettyName.freeCameraBlockInteractions": "freeCameraBlockInteractions",
+    "naitool.config.generic.comment.freeCameraBlockInteractions": "§6范围：§r从灵魂视角使用、放置和破坏方块。\n§e说明：§r包括打开容器、操作功能方块和使用工具改造方块。\n§7默认：§r开启。",
+    "naitool.config.generic.name.freeCameraEntityInteractions": "灵魂出窍-实体交互",
+    "naitool.config.generic.prettyName.freeCameraEntityInteractions": "freeCameraEntityInteractions",
+    "naitool.config.generic.comment.freeCameraEntityInteractions": "§6范围：§r从灵魂视角与实体交互或攻击实体。\n§e说明：§r包括交易、乘坐、喂食和其他原版实体操作；不会以玩家自己为目标。\n§7默认：§r开启。",
+    "naitool.config.generic.name.freeCameraEasyPlace": "灵魂出窍-联动轻松放置",
+    "naitool.config.generic.prettyName.freeCameraEasyPlace": "freeCameraEasyPlace",
+    "naitool.config.generic.comment.freeCameraEasyPlace": "§6功能：§r让 §bLitematica§r 轻松放置从灵魂视角选取投影目标。\n§e要求：§r需要安装 Litematica 并开启其轻松放置模式。\n§7默认：§r开启。"
 }
