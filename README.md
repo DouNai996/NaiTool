@@ -4,13 +4,27 @@
 
 **Minecraft 生存辅助客户端模组**
 
-[![Minecraft](https://img.shields.io/badge/Minecraft-26.2-green.svg)](https://www.minecraft.net/)
+[![Minecraft](https://img.shields.io/badge/Minecraft-26.1.2-green.svg)](https://www.minecraft.net/)
 [![Fabric Loader](https://img.shields.io/badge/Fabric_Loader-0.19.5-blue.svg)](https://fabricmc.net/)
-[![MaLiLib](https://img.shields.io/badge/MaLiLib-0.29.3-orange.svg)](https://github.com/maruohon/malilib)
+[![MaLiLib](https://img.shields.io/badge/MaLiLib-0.28.6-orange.svg)](https://github.com/maruohon/malilib)
 [![Java](https://img.shields.io/badge/Java-25-red.svg)]()
 [![License](https://img.shields.io/badge/License-GPL--3.0-purple.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/Version-1.5-cyan.svg)]()
+
+轻量级 · 低侵入 · 全 GUI 配置 · 快捷键绑定
 
 </div>
+
+---
+
+## 📑 目录
+
+- [📖 项目介绍](#-项目介绍)
+- [✨ 功能列表](#-功能列表)
+- [🔨 编译构建](#-编译构建)
+- [📦 安装与使用](#-安装与使用)
+- [⚙️ 配置说明](#-配置说明)
+- [🙏 致谢](#-致谢)
 
 ---
 
@@ -20,22 +34,22 @@ NaiTool 是一个基于 **Fabric** 的 Minecraft 客户端生存辅助模组（U
 
 本模组专注于提供实用的生存辅助功能，通过 Mixin 注入实现轻量级、低侵入的游戏增强体验。所有功能均可在游戏内通过 GUI 界面自由配置开关与快捷键绑定。
 
-> 当前适配版本：**Minecraft 26.2** · **Fabric Loader 0.19.5** · **Java 25**
+> 当前适配版本：**Minecraft 26.1.2** · **Fabric Loader 0.19.5** · **Java 25**
 
 ---
 
 ## ✨ 功能列表
 
-### 功能模块
-
 | 功能 | 说明 |
 | :--- | :--- |
 | 🎆 **鞘翅加速**（ElytraBoost） | 滑翔时使用烟花加速，支持防消耗模式、自定义烟花飞行时长、音效开关 |
-| 🌈 **鞘翅尾迹**（ElyTrails） | 滑翔时生成炫酷粒子尾迹，支持 5 种模式、自定义颜色/密度/扩散、烟花隐藏、视角优化 |
+| 🌈 **鞘翅尾迹**（ElytraTrails） | 滑翔时生成炫酷粒子尾迹，支持 5 种模式、自定义颜色/密度/扩散、烟花隐藏、视角优化 |
 | 👁️ **夜视模式**（NightVision） | 提供 Gamma 和药水两种夜视模式，带总开关，点击即可循环切换模式 |
 | 🏃 **自动冲刺**（Sprint） | 自动保持冲刺状态，支持严格模式（仅前方）和自由模式（全方向） |
+| 📷 **灵魂出窍增强**（FreeCameraInteractions） | 配合 Tweakeroo 灵魂出窍使用，支持方块/实体交互、EasyPlace 精确定位 |
 
-### 鞘翅尾迹模式
+<details>
+<summary><strong>🌈 鞘翅尾迹模式详情</strong></summary>
 
 | 模式 | 效果 | 说明 |
 | :--- | :--- | :--- |
@@ -49,12 +63,29 @@ NaiTool 是一个基于 **Fabric** 的 Minecraft 客户端生存辅助模组（U
 - 🔇 **隐藏烟花特效** — 尾迹开启时自动过滤烟花白色粒子，推力不受影响
 - 📐 **尾迹下移** — 可调节 Y 轴偏移，避免第一人称视角下尾迹遮挡视野
 
+</details>
+
+<details>
+<summary><strong>📷 灵魂出窍交互详情</strong></summary>
+
+配合 **Tweakeroo** 灵魂出窍相机使用，在灵魂出窍状态下实现：
+
+| 子功能 | 说明 |
+| :--- | :--- |
+| 🧱 **方块交互** | 在灵魂出窍下准星指向方块时可正常破坏/放置 |
+| 🎯 **实体交互** | 在灵魂出窍下准星指向实体时可正常交互 |
+| 📐 **EasyPlace 支持** | 灵魂出窍下使用 EasyPlace 功能时以相机视角为基准 |
+
+> 需要安装 Tweakeroo 并使用其灵魂出窍功能时才会触发。
+
+</details>
+
 ### 快捷键
 
 | 快捷键 | 功能 |
 | :--- | :--- |
 | `X` + `N` | 打开设置界面 |
-| `F` | 鞘翅加速（滑翔时按下触发） |
+| `F` | 鞘翅加速（滑翔时按下触发，允许额外按键） |
 
 > 所有快捷键均可在设置界面中自定义修改。
 
