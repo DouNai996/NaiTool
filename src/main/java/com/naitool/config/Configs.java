@@ -78,6 +78,18 @@ public class Configs implements IConfigHandler {
         public static final ConfigOptionList SPRINT_MODE =
                 new ConfigOptionList("sprintMode", Sprint.Mode.RAGE).apply(GENERIC_KEY);
 
+        public static final ConfigBoolean FREE_CAMERA_ENABLED =
+                new ConfigBoolean("freeCameraEnabled", true).apply(GENERIC_KEY);
+
+        public static final ConfigBoolean FREE_CAMERA_BLOCK_INTERACTIONS =
+                new ConfigBoolean("freeCameraBlockInteractions", true).apply(GENERIC_KEY);
+
+        public static final ConfigBoolean FREE_CAMERA_ENTITY_INTERACTIONS =
+                new ConfigBoolean("freeCameraEntityInteractions", true).apply(GENERIC_KEY);
+
+        public static final ConfigBoolean FREE_CAMERA_EASY_PLACE =
+                new ConfigBoolean("freeCameraEasyPlace", true).apply(GENERIC_KEY);
+
         public static final ImmutableList<@NotNull IConfigBase> OPTIONS = ImmutableList.of(
                 ELYTRA_BOOST_ENABLED,
                 ELYTRA_BOOST_DONT_CONSUME,
@@ -94,7 +106,11 @@ public class Configs implements IConfigHandler {
                 NIGHT_VISION_ENABLED,
                 NIGHT_VISION_MODE,
                 SPRINT_ENABLED,
-                SPRINT_MODE
+                SPRINT_MODE,
+                FREE_CAMERA_ENABLED,
+                FREE_CAMERA_BLOCK_INTERACTIONS,
+                FREE_CAMERA_ENTITY_INTERACTIONS,
+                FREE_CAMERA_EASY_PLACE
         );
     }
 
