@@ -42,6 +42,9 @@ public class Configs implements IConfigHandler {
         public static final ConfigBoolean ELYTRA_BOOST_PLAY_SOUND =
                 new ConfigBoolean("elytraBoostPlaySound", true).apply(GENERIC_KEY);
 
+        public static final ConfigBoolean ELYTRA_BOOST_REAL_FIREWORK =
+                new ConfigBoolean("elytraBoostRealFirework", false).apply(GENERIC_KEY);
+
         public static final ConfigBoolean ELYTRA_TRAILS_ENABLED =
                 new ConfigBoolean("elytraTrailsEnabled", false).apply(GENERIC_KEY);
 
@@ -95,6 +98,7 @@ public class Configs implements IConfigHandler {
                 ELYTRA_BOOST_DONT_CONSUME,
                 ELYTRA_BOOST_FIREWORK_LEVEL,
                 ELYTRA_BOOST_PLAY_SOUND,
+                ELYTRA_BOOST_REAL_FIREWORK,
                 ELYTRA_TRAILS_ENABLED,
                 ELYTRA_TRAILS_MODE,
                 ELYTRA_TRAILS_COLOR,
