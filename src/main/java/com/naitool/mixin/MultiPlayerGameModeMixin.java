@@ -22,6 +22,7 @@ public abstract class MultiPlayerGameModeMixin {
         Minecraft mc = Minecraft.getInstance();
 
         if (mc.player == null || mc.player != player) return;
+        if (ElytraBoost.isBypassing()) return;
         if (!Configs.Generic.ELYTRA_BOOST_ENABLED.getBooleanValue()) return;
         if (!Configs.Generic.ELYTRA_BOOST_DONT_CONSUME.getBooleanValue()) return;
         if (!player.isFallFlying() || mc.gui.screen() != null) return;
