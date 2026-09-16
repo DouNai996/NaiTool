@@ -20,6 +20,7 @@ import fi.dy.masa.malilib.config.options.ConfigOptionList;
 import fi.dy.masa.malilib.util.FileUtils;
 import fi.dy.masa.malilib.util.data.json.JsonUtils;
 import com.naitool.Reference;
+import com.naitool.feature.GhostMine;
 import com.naitool.feature.NightVision;
 import com.naitool.feature.Sprint;
 import com.naitool.feature.ElytraTrails;
@@ -93,6 +94,38 @@ public class Configs implements IConfigHandler {
         public static final ConfigBoolean FREE_CAMERA_EASY_PLACE =
                 new ConfigBoolean("freeCameraEasyPlace", true).apply(GENERIC_KEY);
 
+        // ==================== GhostMine 发包挖掘 ====================
+        public static final ConfigBoolean GHOST_MINE_ENABLED =
+                new ConfigBoolean("ghostMineEnabled", false).apply(GENERIC_KEY);
+        public static final ConfigInteger GHOST_MINE_RANGE =
+                new ConfigInteger("ghostMineRange", 6, 1, 6).apply(GENERIC_KEY);
+        public static final ConfigDouble GHOST_MINE_SPEED =
+                new ConfigDouble("ghostMineSpeed", 0.85, 0.65, 1.0).apply(GENERIC_KEY);
+        public static final ConfigBoolean GHOST_MINE_REBREAK =
+                new ConfigBoolean("ghostMineRebreak", true).apply(GENERIC_KEY);
+        public static final ConfigInteger GHOST_MINE_REBREAK_DELAY =
+                new ConfigInteger("ghostMineRebreakDelay", 0, 0, 10).apply(GENERIC_KEY);
+        public static final ConfigBoolean GHOST_MINE_FAST_BYPASS =
+                new ConfigBoolean("ghostMineFastBypass", true).apply(GENERIC_KEY);
+        public static final ConfigBoolean GHOST_MINE_BYPASS_GROUND =
+                new ConfigBoolean("ghostMineBypassGround", false).apply(GENERIC_KEY);
+        public static final ConfigBoolean GHOST_MINE_SWING =
+                new ConfigBoolean("ghostMineSwingHand", true).apply(GENERIC_KEY);
+        public static final ConfigInteger GHOST_MINE_SWITCH_DAMAGE =
+                new ConfigInteger("ghostMineSwitchDamage", 95, 0, 100).apply(GENERIC_KEY);
+        public static final ConfigInteger GHOST_MINE_SWITCH_TIME =
+                new ConfigInteger("ghostMineSwitchTime", 100, 0, 1000).apply(GENERIC_KEY);
+        public static final ConfigInteger GHOST_MINE_MAX_BREAKS =
+                new ConfigInteger("ghostMineMaxBreaks", 6, 1, 20).apply(GENERIC_KEY);
+        public static final ConfigBoolean GHOST_MINE_RENDER =
+                new ConfigBoolean("ghostMineRender", true).apply(GENERIC_KEY);
+        public static final ConfigBoolean GHOST_MINE_QUEUE_RENDER =
+                new ConfigBoolean("ghostMineQueueRender", true).apply(GENERIC_KEY);
+        public static final ConfigOptionList GHOST_MINE_SHAPE_MODE =
+                new ConfigOptionList("ghostMineShapeMode", GhostMine.ShapeModeOption.BOTH).apply(GENERIC_KEY);
+        public static final ConfigOptionList GHOST_MINE_QUEUE_SHAPE_MODE =
+                new ConfigOptionList("ghostMineQueueShapeMode", GhostMine.ShapeModeOption.BOTH).apply(GENERIC_KEY);
+
         public static final ImmutableList<@NotNull IConfigBase> OPTIONS = ImmutableList.of(
                 ELYTRA_BOOST_ENABLED,
                 ELYTRA_BOOST_DONT_CONSUME,
@@ -114,7 +147,22 @@ public class Configs implements IConfigHandler {
                 FREE_CAMERA_ENABLED,
                 FREE_CAMERA_BLOCK_INTERACTIONS,
                 FREE_CAMERA_ENTITY_INTERACTIONS,
-                FREE_CAMERA_EASY_PLACE
+                FREE_CAMERA_EASY_PLACE,
+                GHOST_MINE_ENABLED,
+                GHOST_MINE_RANGE,
+                GHOST_MINE_SPEED,
+                GHOST_MINE_REBREAK,
+                GHOST_MINE_REBREAK_DELAY,
+                GHOST_MINE_FAST_BYPASS,
+                GHOST_MINE_BYPASS_GROUND,
+                GHOST_MINE_SWING,
+                GHOST_MINE_SWITCH_DAMAGE,
+                GHOST_MINE_SWITCH_TIME,
+                GHOST_MINE_MAX_BREAKS,
+                GHOST_MINE_RENDER,
+                GHOST_MINE_QUEUE_RENDER,
+                GHOST_MINE_SHAPE_MODE,
+                GHOST_MINE_QUEUE_SHAPE_MODE
         );
     }
 

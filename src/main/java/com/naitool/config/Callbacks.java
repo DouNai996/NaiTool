@@ -15,6 +15,7 @@ public class Callbacks {
 
         Hotkeys.OPEN_CONFIG_GUI.getKeybind().setCallback(callbackGeneric);
         Hotkeys.ELYTRA_BOOST.getKeybind().setCallback(callbackGeneric);
+        Hotkeys.GHOST_MINE_TOGGLE.getKeybind().setCallback(callbackGeneric);
     }
 
     private record KeyCallbackHotkeysGeneric(Minecraft mc) implements IHotkeyCallback {
@@ -25,6 +26,9 @@ public class Callbacks {
                 return true;
             } else if (key == Hotkeys.ELYTRA_BOOST.getKeybind()) {
                 ElytraBoost.boost();
+                return true;
+            } else if (key == Hotkeys.GHOST_MINE_TOGGLE.getKeybind()) {
+                Configs.Generic.GHOST_MINE_ENABLED.setBooleanValue(!Configs.Generic.GHOST_MINE_ENABLED.getBooleanValue());
                 return true;
             }
             return false;

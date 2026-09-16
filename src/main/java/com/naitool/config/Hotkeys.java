@@ -17,8 +17,12 @@ public class Hotkeys {
     public static final ConfigHotkey ELYTRA_BOOST =
             new ConfigHotkey("elytraBoost", "F", KeybindSettings.PRESS_ALLOWEXTRA).apply(HOTKEY_KEY);
 
+    public static final ConfigHotkey GHOST_MINE_TOGGLE =
+            new ConfigHotkey("ghostMineToggle", "G").apply(HOTKEY_KEY);
+
     public static final List<ConfigHotkey> HOTKEY_LIST = ImmutableList.of(
             OPEN_CONFIG_GUI,
-            ELYTRA_BOOST
+            ELYTRA_BOOST,
+            GHOST_MINE_TOGGLE
     );
 }
