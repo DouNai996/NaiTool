@@ -35,23 +35,23 @@ public final class ElytraBoost {
         return bypassing;
     }
 
-    public static void boost() {
+    /** @return 本次是否真正触发了加速（用于起飞通知等） */
+    public static boolean boost() {
         Minecraft mc = Minecraft.getInstance();
 
         if (mc.player == null || mc.level == null || ScreenTracker.getCurrentScreen() != null) {
-            return;
+            return false;
         }
         if (!mc.player.isFallFlying()) {
-            return;
+            return false;
         }
         if (!Configs.Generic.ELYTRA_BOOST_ENABLED.getBooleanValue()) {
-            return;
+            return false;
         }
 
         // 移植自 OnekeyFireWork：使用真实烟花（服务端有效，会消耗烟花）
         if (Configs.Generic.ELYTRA_BOOST_REAL_FIREWORK.getBooleanValue()) {
-            realFirework(mc);
-            return;
+            return realFirework(mc);
         }
 
         FIREWORKS.removeIf(Entity::isRemoved);
@@ -62,7 +62,7 @@ public final class ElytraBoost {
         if (!dontConsume) {
             held = findFirework(mc);
             if (held.isEmpty()) {
-                return;
+                return false;
             }
         }
 
@@ -84,6 +84,7 @@ public final class ElytraBoost {
         if (!dontConsume) {
             held.shrink(1);
         }
+        return true;
     }
 
     public static boolean isFirework(FireworkRocketEntity firework) {
@@ -94,19 +95,19 @@ public final class ElytraBoost {
      * 发射逻辑：按 副手 → 当前手持 → 快捷栏 → 背包 的顺序寻找烟花并真正使用。
      * 快捷栏外的烟花会临时交换到当前选中槽位，发射后再换回原位。
      */
-    private static void realFirework(Minecraft mc) {
+    private static boolean realFirework(Minecraft mc) {
         if (mc.gameMode == null || mc.getConnection() == null || mc.player.containerMenu == null) {
-            return;
+            return false;
         }
 
         if (mc.player.getOffhandItem().is(Items.FIREWORK_ROCKET)) {
             useRealItem(mc, InteractionHand.OFF_HAND);
-            return;
+            return true;
         }
 
         if (mc.player.getMainHandItem().is(Items.FIREWORK_ROCKET)) {
             useRealItem(mc, InteractionHand.MAIN_HAND);
-            return;
+            return true;
         }
 
         int selected = mc.player.getInventory().getSelectedSlot();
@@ -120,7 +121,7 @@ public final class ElytraBoost {
                 selectSlot(mc, slot);
                 useRealItem(mc, InteractionHand.MAIN_HAND);
                 selectSlot(mc, selected);
-                return;
+                return true;
             }
         }
 
@@ -130,9 +131,10 @@ public final class ElytraBoost {
                 swapWithHotbar(mc, slot, selected);
                 useRealItem(mc, InteractionHand.MAIN_HAND);
                 swapWithHotbar(mc, slot, selected);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
     /** 将背包索引（Inventory 下标）映射为玩家背包菜单 InventoryMenu 的槽位 id。 */

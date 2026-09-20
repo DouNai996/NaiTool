@@ -16,11 +16,13 @@
 		"MultiPlayerGameModeMixin",
 		"GhostMineGameModeMixin",
 		"GameRendererRenderMixin",
+		"ComposeFrameMixin",
 		"MinecraftMixin",
 		"LightmapMixin",
 		"LocalPlayerMixin",
 		"LocalPlayerTickMixin",
-		"GuiScreenMixin"
+		"GuiScreenMixin",
+		"TitleScreenReplaceMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

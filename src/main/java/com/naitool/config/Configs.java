@@ -16,6 +16,7 @@ import fi.dy.masa.malilib.config.options.ConfigBoolean;
 import fi.dy.masa.malilib.config.options.ConfigDouble;
 import fi.dy.masa.malilib.config.options.ConfigInteger;
 import fi.dy.masa.malilib.config.options.ConfigOptionList;
+import fi.dy.masa.malilib.config.options.ConfigString;
 
 import fi.dy.masa.malilib.util.FileUtils;
 import fi.dy.masa.malilib.util.data.json.JsonUtils;
@@ -45,6 +46,9 @@ public class Configs implements IConfigHandler {
 
         public static final ConfigBoolean ELYTRA_BOOST_REAL_FIREWORK =
                 new ConfigBoolean("elytraBoostRealFirework", false).apply(GENERIC_KEY);
+
+        public static final ConfigString ELYTRA_BOOST_MESSAGE =
+                new ConfigString("elytraBoostMessage", "芜湖 起飞！").apply(GENERIC_KEY);
 
         public static final ConfigBoolean ELYTRA_TRAILS_ENABLED =
                 new ConfigBoolean("elytraTrailsEnabled", false).apply(GENERIC_KEY);
@@ -130,12 +134,29 @@ public class Configs implements IConfigHandler {
         public static final ConfigBoolean NO_FALL_ENABLED =
                 new ConfigBoolean("noFallEnabled", false).apply(GENERIC_KEY);
 
+        // ==================== Interface 界面 ====================
+        public static final ConfigBoolean INTERFACE_ENABLED =
+                new ConfigBoolean("interfaceEnabled", true).apply(GENERIC_KEY);
+        public static final ConfigBoolean INTERFACE_WATERMARK =
+                new ConfigBoolean("interfaceWatermark", true).apply(GENERIC_KEY);
+        public static final ConfigOptionList INTERFACE_COLOR_MODE =
+                new ConfigOptionList("interfaceColorMode", InterfaceColorMode.RAINBOW).apply(GENERIC_KEY);
+        public static final ConfigInteger INTERFACE_FONT_SIZE =
+                new ConfigInteger("interfaceFontSize", 9, 6, 20).apply(GENERIC_KEY);
+        public static final ConfigBoolean INTERFACE_BACKGROUND =
+                new ConfigBoolean("interfaceBackground", true).apply(GENERIC_KEY);
+        public static final ConfigBoolean INTERFACE_NOTIFICATIONS =
+                new ConfigBoolean("interfaceNotifications", true).apply(GENERIC_KEY);
+        public static final ConfigBoolean INTERFACE_CUSTOM_TITLE =
+                new ConfigBoolean("interfaceCustomTitle", true).apply(GENERIC_KEY);
+
         public static final ImmutableList<@NotNull IConfigBase> OPTIONS = ImmutableList.of(
                 ELYTRA_BOOST_ENABLED,
                 ELYTRA_BOOST_DONT_CONSUME,
                 ELYTRA_BOOST_FIREWORK_LEVEL,
                 ELYTRA_BOOST_PLAY_SOUND,
                 ELYTRA_BOOST_REAL_FIREWORK,
+                ELYTRA_BOOST_MESSAGE,
                 ELYTRA_TRAILS_ENABLED,
                 ELYTRA_TRAILS_MODE,
                 ELYTRA_TRAILS_COLOR,
@@ -167,7 +188,14 @@ public class Configs implements IConfigHandler {
                 GHOST_MINE_QUEUE_RENDER,
                 GHOST_MINE_SHAPE_MODE,
                 GHOST_MINE_QUEUE_SHAPE_MODE,
-                NO_FALL_ENABLED
+                NO_FALL_ENABLED,
+                INTERFACE_ENABLED,
+                INTERFACE_WATERMARK,
+                INTERFACE_COLOR_MODE,
+                INTERFACE_FONT_SIZE,
+                INTERFACE_BACKGROUND,
+                INTERFACE_NOTIFICATIONS,
+                INTERFACE_CUSTOM_TITLE
         );
     }
 

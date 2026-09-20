@@ -17,6 +17,9 @@
 	"entrypoints": {
 		"main": [
 			"com.naitool.NaiTool"
+		],
+		"modmenu": [
+			"com.naitool.gui.NaiModMenuApi"
 		]
 	},
 	"mixins": [
@@ -28,5 +31,8 @@
 		"java": ">=25",
 		"fabric-api": "*",
 		"malilib": ">=0.28.6"
+	},
+	"suggests": {
+		"modmenu": "*"
 	}
 }

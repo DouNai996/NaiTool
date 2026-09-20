@@ -1,9 +1,20 @@
 plugins {
 	id 'net.fabricmc.fabric-loom' version "${loom_version}"
 	id 'maven-publish'
+	id 'org.jetbrains.kotlin.jvm' version "${kotlin_version}"
+	id 'org.jetbrains.compose' version "${compose_version}"
+	id 'org.jetbrains.kotlin.plugin.compose' version "${kotlin_version}"
+	id 'com.gradleup.shadow' version "${shadow_version}"
 }
 
 repositories {
+	// 阿里云镜像
+	maven { url = "https://maven.aliyun.com/repository/public" }
+	maven { url = "https://maven.aliyun.com/repository/central" }
+	maven { url = "https://maven.aliyun.com/repository/gradle-plugin" }
+	maven { url = "https://maven.aliyun.com/repository/google" }
+
+	// 以下自定义仓库阿里云没有，必须保留
 	maven { url = "https://masa.dy.fi/maven/sakura-ryoko"
 		content {
 			includeGroupAndSubgroups("fi.dy.masa")
@@ -23,6 +34,22 @@ repositories {
 		name = "Modrinth"
 		url = "https://api.modrinth.com/maven"
 	}
+	maven { url = 'https://maven.pkg.jetbrains.space/public/p/compose/dev' }
+}
+
+// ⭐ 关键：拦截插件偷偷加进来的 google() 仓库，重写成阿里云镜像
+allprojects {
+	repositories.withType(MavenArtifactRepository).configureEach { repo ->
+		def repoUrl = repo.url.toString()
+		if (repoUrl.contains("maven.google.com") || repoUrl.contains("dl.google.com")) {
+			repo.url = uri("https://maven.aliyun.com/repository/google")
+		}
+	}
+}
+
+configurations {
+	shade
+	implementation.extendsFrom shade
 }
 
 dependencies {
@@ -36,6 +63,14 @@ dependencies {
 	compileOnly "maven.modrinth:litematica:${project.litematica_version}"
 
 	compileOnly "com.terraformersmc:modmenu:20.0.1"
+
+	// Compose Multiplatform（Skia 自绘 UI，shadow 进最终 jar）
+	shade(compose.desktop.currentOs)
+	shade(compose.ui)
+	shade(compose.foundation)
+	shade(compose.material3)
+	shade(compose.runtime)
+	shade("org.jetbrains.compose.ui:ui-desktop")
 }
 
 processResources {
@@ -54,6 +89,12 @@ tasks.withType(JavaCompile).configureEach {
 	it.options.release = 25
 }
 
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+	compilerOptions {
+		jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21
+	}
+}
+
 java {
 	withSourcesJar()
 
@@ -70,6 +111,36 @@ jar {
 	from("LICENSE") {
 		rename { "${it}_$projectName"}
 	}
+}
+
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
+tasks.named('shadowJar', ShadowJar) {
+	// 无 mappings 环境下 shadowJar 即最终 mod 产物：naitool-26.1.2-<version>.jar
+	archiveBaseName.set("${project.archives_base_name}-${project.minecraft_version}")
+	archiveVersion.set("${project.version}")
+	archiveClassifier.set("")
+	configurations = [project.configurations.shade]
+	from sourceSets.main.output
+
+	// 合并 SPI 服务文件（Skiko/Coroutines 必需）
+	mergeServiceFiles()
+
+	exclude "META-INF/INDEX.LIST"
+	exclude "META-INF/*.SF"
+	exclude "META-INF/*.DSA"
+	exclude "META-INF/*.RSA"
+	exclude "META-INF/versions/9/module-info.class"
+}
+
+// 本项目无 mappings（官方映射，dontRemapOutputs），Loom 不创建 remapJar，
+// jar 即最终产物。禁用 jar，让 shadowJar 直接作为最终 mod jar。
+tasks.named('jar') {
+	enabled = false
+}
+
+tasks.named('assemble') {
+	dependsOn tasks.named('shadowJar')
 }
 
 sourcesJar {
