@@ -20,9 +20,13 @@ public class Hotkeys {
     public static final ConfigHotkey GHOST_MINE_TOGGLE =
             new ConfigHotkey("ghostMineToggle", "G").apply(HOTKEY_KEY);
 
+    public static final ConfigHotkey NO_FALL_TOGGLE =
+            new ConfigHotkey("noFallToggle", "B").apply(HOTKEY_KEY);
+
     public static final List<ConfigHotkey> HOTKEY_LIST = ImmutableList.of(
             OPEN_CONFIG_GUI,
             ELYTRA_BOOST,
-            GHOST_MINE_TOGGLE
+            GHOST_MINE_TOGGLE,
+            NO_FALL_TOGGLE
     );
 }

@@ -132,7 +132,13 @@
     "naitool.config.generic.name.ghostMineQueueShapeMode": "发包挖掘-待挖渲染样式",
     "naitool.config.generic.prettyName.ghostMineQueueShapeMode": "ghostMineQueueShapeMode",
     "naitool.config.generic.comment.ghostMineQueueShapeMode": "§6功能：§r点击切换待挖掘方块的绘制样式：§b仅描边§r / §b仅面§r / §b描边+面§r。\n§7默认：§r描边+面。",
+    "naitool.config.generic.name.noFallEnabled": "无摔伤-启用",
+    "naitool.config.generic.prettyName.noFallEnabled": "noFallEnabled",
+    "naitool.config.generic.comment.noFallEnabled": "§6功能：§r坠落超距时发完整移动包并清零下落距离，防止摔落伤害（建议配合 Via 降到 1.20.6 或以下版本）。\n§7默认：§r关闭。",
     "naitool.config.hotkey.name.ghostMineToggle": "切换发包挖掘",
     "naitool.config.hotkey.prettyName.ghostMineToggle": "ghostMineToggle",
-    "naitool.config.hotkey.comment.ghostMineToggle": "§6功能：§r开关 §b发包挖掘§r。\n§7默认：§rG"
+    "naitool.config.hotkey.comment.ghostMineToggle": "§6功能：§r开关 §b发包挖掘§r。\n§7默认：§rG",
+    "naitool.config.hotkey.name.noFallToggle": "切换无摔伤",
+    "naitool.config.hotkey.prettyName.noFallToggle": "noFallToggle",
+    "naitool.config.hotkey.comment.noFallToggle": "§6功能：§r开关 §b无摔伤§r。\n§7默认：§rB"
 }

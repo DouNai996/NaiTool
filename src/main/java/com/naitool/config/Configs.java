@@ -126,6 +126,10 @@ public class Configs implements IConfigHandler {
         public static final ConfigOptionList GHOST_MINE_QUEUE_SHAPE_MODE =
                 new ConfigOptionList("ghostMineQueueShapeMode", GhostMine.ShapeModeOption.BOTH).apply(GENERIC_KEY);
 
+        // ==================== NoFall 无摔伤 ====================
+        public static final ConfigBoolean NO_FALL_ENABLED =
+                new ConfigBoolean("noFallEnabled", false).apply(GENERIC_KEY);
+
         public static final ImmutableList<@NotNull IConfigBase> OPTIONS = ImmutableList.of(
                 ELYTRA_BOOST_ENABLED,
                 ELYTRA_BOOST_DONT_CONSUME,
@@ -162,7 +166,8 @@ public class Configs implements IConfigHandler {
                 GHOST_MINE_RENDER,
                 GHOST_MINE_QUEUE_RENDER,
                 GHOST_MINE_SHAPE_MODE,
-                GHOST_MINE_QUEUE_SHAPE_MODE
+                GHOST_MINE_QUEUE_SHAPE_MODE,
+                NO_FALL_ENABLED
         );
     }
 
